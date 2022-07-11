@@ -1,6 +1,8 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2 
 
+params.who = "World"
+
 process sayHello {
   input: 
     val x
@@ -8,7 +10,8 @@ process sayHello {
     stdout
   script:
     """
-    env
+    echo $x, ${params.who}!
+    echo \$MYENV
     """
 }
 
